@@ -6,11 +6,11 @@ from flask_wtf.csrf import CSRFProtect
 import typograf
 app = Flask(__name__)
 csrf = CSRFProtect(app)
-
+len_secret_keys = 24
 csrf.init_app(app)
 app.config.update(dict(
-    SECRET_KEY=os.urandom(24),
-    WTF_CSRF_SECRET_KEY=os.urandom(24)
+    SECRET_KEY=os.urandom(len_secret_keys),
+    WTF_CSRF_SECRET_KEY=os.urandom(len_secret_keys)
 ))
 
 
