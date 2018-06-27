@@ -31,13 +31,16 @@ def add_space_after_punctuation(text):
 
 def format_phone_number(text):
     return re.sub(
-        '(\+7|7|8)'
-        '[ \(-]*(\d{3,4})[ \)-]*'
-        '(\d)[^\d]*(\d)[^\d]?(\d)'
-        '[^\d]?(\d)[^\d]?(\d)'
-        '[^\d]?(\d)[^\d]?(\d)',
+        '''
+        (\+7|7|8)                  # country code  
+        [ \(-]*(\d{3,4})[ \)-]*    # sity code
+        (\d)[^\d]*(\d)[^\d]?(\d)   # main telephone XXX-xx-xx
+        [^\d]?(\d)[^\d]?(\d)       # main telephone xxx-XX-xx
+        [^\d]?(\d)[^\d]?(\d)       # main telephone xxx-xx-XX
+        ''',
         r'\1 (\2) \3\4\5&#150;\6\7&#150;\8\9',
-        text
+        text,
+        flags=re.VERBOSE
     )
 
 
