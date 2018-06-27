@@ -33,7 +33,7 @@ def format_phone_number(text):
     return re.sub(
         '''
         (\+7|7|8)                  # country code  
-        [ \(-]*(\d{3,4})[ \)-]*    # sity code
+        [ \(-]*(\d{3,4})[ \)-]*    # city code
         (\d)[^\d]*(\d)[^\d]?(\d)   # main telephone XXX-xx-xx
         [^\d]?(\d)[^\d]?(\d)       # main telephone xxx-XX-xx
         [^\d]?(\d)[^\d]?(\d)       # main telephone xxx-xx-XX
